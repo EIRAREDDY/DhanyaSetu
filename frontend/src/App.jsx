@@ -25,6 +25,8 @@ import TransporterDashboard from './pages/transporter/TransporterDashboard'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminUsers from './pages/admin/AdminUsers'
 import AdminOrders from './pages/admin/AdminOrders'
+import AdminCrops from './pages/admin/AdminCrops'
+import ProfilePage from './pages/ProfilePage'
 
 export default function App() {
   return (
@@ -39,6 +41,7 @@ export default function App() {
           <Route path="/marketplace/:id" element={<CropDetailPage />} />
           <Route path="/ai-insights" element={<AIInsightsPage />} />
           <Route path="/notifications" element={<NotificationsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
 
           {/* Guest only */}
           <Route path="/login" element={<GuestRoute><LoginPage /></GuestRoute>} />
@@ -60,6 +63,7 @@ export default function App() {
           <Route path="/admin/dashboard" element={<ProtectedRoute roles={['ADMIN']}><AdminDashboard /></ProtectedRoute>} />
           <Route path="/admin/users" element={<ProtectedRoute roles={['ADMIN']}><AdminUsers /></ProtectedRoute>} />
           <Route path="/admin/orders" element={<ProtectedRoute roles={['ADMIN']}><AdminOrders /></ProtectedRoute>} />
+          <Route path="/admin/crops" element={<ProtectedRoute roles={['ADMIN']}><AdminCrops /></ProtectedRoute>} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

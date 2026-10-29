@@ -38,4 +38,11 @@ public class AuthController {
             .district(user.getDistrict()).villageOrCity(user.getVillageOrCity())
             .enabled(user.isEnabled()).build());
     }
+
+    @PatchMapping("/users/me/password")
+    public ResponseEntity<Void> changePassword(@RequestBody java.util.Map<String, String> body,
+                                                @AuthenticationPrincipal User user) {
+        authService.changePassword(user, body.get("currentPassword"), body.get("newPassword"));
+        return ResponseEntity.ok().build();
+    }
 }
